@@ -12,5 +12,5 @@ def a_propos(request):
 
 
 def cv(request):
-    return render(request, "mysite/cv.html")
+    return render(request, "mysitee/cv.html")
 
