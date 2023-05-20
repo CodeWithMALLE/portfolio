@@ -1,0 +1,195 @@
+{% extends "mysite/base.html" %}
+{% load static %}
+
+{% block title %}login{% endblock %}
+
+{% block bodyId %}login{% endblock %}
+
+{% block contenu %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-danger text-black fs-3">
+                <div class="panel-heading"><h2><span class="glyphicon glyphicon-home"></span>
+                    Présentation</h2></div>
+                <div class="panel-body align-items-center">
+                    <div class="col-sm-2">
+                        <img src="{% static 'mysite/img/logo_transparent.png' %}" alt="Mon logo"
+                             class="rounded-circle w-100 border-danger border border-2"
+                             height="auto">
+                    </div>
+                    <div class="col-sm-10">
+                        <p class="lead fs-2 fw-bold">Vous êtes à la recherche d'une
+                            personne
+                            compétante et
+                            efficace pour réaliser vos projets web ?</p>
+                    </div>
+                    <div class="col-sm-12">
+                        <hr>
+                        <p class="">
+                            Actuellement, je suis Etudiant en 2ème année Informatique, je suis
+                            passionné par le développement informatique et c'est bien ce que que
+                            fais d'ailleurs, j'utilise ces compétances pour réaliser vos projets
+                            web et mobile(sites et/ou applications web et mobiles).
+                            <span style="display: none" id="suite-presentation">
+                                <br>
+                                Aujourd'hui, je fais:
+                                <br><br>
+                                Redaction cahier de charges <br>
+                                Elaboration de votre design et integration précise <br>
+                                Développement et programmation <br>
+                                Mise en production et administration ou publication de votre
+                                projet(web & mobile) <br>
+                                Réflexion stratégique, statistique et reférencement
+                                Maintenance et mise à jour régulière <br>
+
+                            </span>
+                            <em class="text-primary" style="cursor: pointer;"
+                                id="lire-suite">lire
+                                plus</em>
+
+                        </p>
+                    </div>
+                    <div class="col-5">
+                        <img src="{% static 'mysite/img/codeangel.png' %}" alt="Mon logo"
+                             class="rounded img-thumbnail" width="100%">
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h2><span class="glyphicon glyphicon-bullhorn"></span> Actualités</h2>
+                </div>
+                <div class="panel-body">
+                    <p>Actu 1...</p>
+                    <p>Actu 2...</p>
+                    <p>Actu 3...</p>
+                    <p>Actu 4...</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div
+                        class="panel-heading"><h2><span class="glyphicon glyphicon-user"></span> Qui
+                    suis-je ?</h2></div>
+                <div class="panel-body">
+                    <div class="col-md-10 offset-md-1">
+                        <h3 class="text-center fs-2 text-decoration-underline">En quelques
+                            mots</h3>
+                        <dl class="fs-4 dl-vertical mt-5">
+                            <dt>Mes casquettes:</dt>
+                            <dd class="ms-5 mb-4">Etudiant, Développeur web</dd>
+
+                            <dt>Mes talents:</dt>
+                            <dd class="ms-5 mb-4">De la redaction de cahiers de charges
+                                jusqu'à la mise en
+                                production du projet(site ou app web)
+                            </dd>
+
+                            <dt>Technologies:</dt>
+                            <dd class="ms-5 mb-4">HTML/CSS/JS; Python/Django; Bootstrap; Conception
+                                MERISE;
+                                Modélisation UML; Algorithmique; SQL/MySQL/SQLite
+                            </dd>
+
+                            <dt>Passion:</dt>
+                            <dd class="ms-5 mb-4">Coder coder coder...; Lecture, Ecouter de la
+                                musique
+                            </dd>
+                            <dt>Vision:</dt>
+                            <dd class="ms-5 mb-4">Contribuer au développement de
+                                l'internet en géneral et du Web en particulier
+                                .
+                            </dd>
+                        </dl>
+                        <p class="text-center"><a href="{% url 'mysite:a_propos' %}"
+                                                  class="btn btn-lg"
+                                                  style="background-color:#042a2b; color: white">En
+                            savoir
+                            plus</a></p>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h2><span
+                        class="glyphicon glyphicon-briefcase"></span> Expérience</h2></div>
+                <div class="panel-body">
+                    <p class="fs-4 fw-bold">
+                        Je suis ravi de vous présenter mes
+                        expériences en développement de sites web. En tant
+                        que passionné du web, j'ai créé plusieurs sites qui
+                        mettent en valeur mes compétences et ma créativité.
+                        Aujourd'hui, je vais vous présenter trois de mes
+                        réalisations les plus significatives : mon propre site, un site web pour un
+                        restaurant et un site
+                        de discussion.
+                    </p>
+                    <dl class="text-center fs-4">
+                        <dt class="text-decoration-underline">Mon Site - Celui-ci 👌</dt>
+                        <dd class="">J'ai conçu mon propre site portfolio pour
+                            présenter mes compétences et mes projets. J'ai mis
+                            l'accent sur une conception responsive, offrant une
+                            expérience utilisateur fluide sur tous les appareils.
+                            J'ai choisi un design épuré et moderne pour mettre en
+                            valeur mes réalisations. J'ai utilisé des technologies
+                            telles que HTML, CSS, JavaScript et même Bootstrap pour
+                            développer ce site.
+                        </dd>
+
+                        <dt class="text-decoration-underline">Site Web Restaurant</dt>
+                        <dd>J'ai eu l'opportunité de créer un site web pour un
+                            restaurant local. J'ai travaillé en étroite collaboration
+                            avec le propriétaire pour comprendre l'identité de
+                            l'établissement et créer une présence en ligne qui
+                            reflète son ambiance. J'ai développé un site web
+                            attrayant et convivial, permettant aux clients de
+                            réserver en ligne, de consulter le menu interactif,
+                            de parcourir une galerie de photos et de lire les avis
+                            des clients satisfaits. Le site a été développé en utilisant
+                            des technologies telles que HTML, CSS/Bootstrap, JS et Python/DJANGO.
+                        </dd>
+
+                        <dt class="text-decoration-underline">Site De Discussion</dt>
+                        <dd>Un autre projet passionnant que j'ai réalisé est la
+                            création d'un site de discussion. J'ai voulu offrir aux
+                            utilisateurs un espace en ligne pour échanger et partager des
+                            idées sur des sujets spécifiques. J'ai développé une plateforme
+                            avec des fonctionnalités telles que l'enregistrement des utilisateurs,
+                            la création de discussions thématiques, la possibilité de commenter et
+                            de partager du contenu, ainsi qu'une modération efficace. J'ai utilisé
+                            des technologies comme JavaScript, Python/Django et MySql pour
+                            construire
+                            cette plateforme interactive.
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h2><span class="glyphicon glyphicon-earphone"></span>
+                    Contact</h2></div>
+                <div class="panel-body" id="panel-body-contact">
+                    <div class="col-md-10 offset-md-1">
+                        <address>
+                            <p
+                                    class="text-center"><a href="#"
+                                                           class="btn btn-primary btn-lg">Me
+                                contacter</a></p>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

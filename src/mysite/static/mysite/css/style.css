@@ -1,0 +1,75 @@
+* {
+    font-family: Comic Sans MS, Comic Sans, cursive;
+}
+
+body {
+    background-color: #042a2b;
+    color: white;
+}
+
+.panel-body {
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #fff;
+}
+
+#panel-body-contact {
+    background-color: white;
+    color: #000;
+}
+
+.body {
+    margin-bottom: 20px;
+}
+
+.row1 {
+    background-color: black;
+    opacity: 80%;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .row1 {
+        background-color: rgba(0, 0, 0, 0.85);
+        opacity: 80%;
+    }
+
+    .row2 {
+        background-color: #042a2b;
+        color: white;
+    }
+
+
+    body#a-propos .ligne.row1 {
+        box-shadow: none;
+        border: none;
+    }
+
+    .triangle {
+        width: 100%;
+        margin: 0;
+        height: 100px;
+        clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .triangle2 {
+        background-color: #042a2b;
+    }
+
+    .triangle1 {
+        background-color: rgba(0, 0, 0, 0.85);
+        opacity: 80%;
+    }
+
+    .col-md-6.ligne {
+        padding: 0;
+    }
+
+    .col-md-6.ligne .body {
+        padding: 0 10px;
+    }
+
+    .body > p {
+        margin-bottom: 0;
+    }
+
+}
