@@ -47,7 +47,7 @@
             </div>
             <div class="col-3 offset-1">
                 <h3><a href="#">Télecharger mon CV</a></h3>
-                <h3><a href="#">Partagez</a></h3>
+                <h3><a href="javascript:void(0)" id="shareButton">Partagez</a></h3>
             </div>
         </div>
         <div class="row">
@@ -138,6 +138,23 @@
 
         debloquer_la_suite()
     })();
+
+  const shareButton = document.getElementById('shareButton');
+
+  if (navigator.share) {
+    shareButton.addEventListener('click', () => {
+      navigator.share({
+        title: 'CodeANGEL le dev 😊',
+        text: 'Description de votre site',
+        url: 'https://codeangel.pythonanywhere.com'
+      })
+        .then(() => console.log('Partage réussi !'))
+        .catch((error) => console.error('Erreur lors du partage :', error));
+    });
+  } else {
+    shareButton.style.display = 'none'; // Masquer le bouton si l'API de partage n'est pas prise en charge
+  }
+
 
 </script>
 
