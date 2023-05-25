@@ -12,7 +12,8 @@
           href="{% static 'mysite/img/logo_transparent.png' %}"/>
 
     <link rel="stylesheet" href="{% static 'mysite/bootstrap/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -54,7 +55,8 @@
             <div class="col-12">
                 <nav class="navbar navbar-expand-lg border-white fs-2 bg-white">
                     <button class="navbar-toggler" data-toggle="collapse" type="button"
-                            data-target="#Nav" aria-controls="Nav" aria-expanded="false" aria-label="Toggle navigation"><span
+                            data-target="#Nav" aria-controls="Nav" aria-expanded="false"
+                            aria-label="Toggle navigation"><span
                             class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="Nav">
@@ -139,21 +141,17 @@
         debloquer_la_suite()
     })();
 
-  const shareButton = document.getElementById('shareButton');
+    const shareButton = document.getElementById('shareButton');
 
-  if (navigator.share) {
     shareButton.addEventListener('click', () => {
-      navigator.share({
-        title: 'CodeANGEL le dev 😊',
-        text: 'Description de votre site',
-        url: 'https://codeangel.pythonanywhere.com'
-      })
-        .then(() => console.log('Partage réussi !'))
-        .catch((error) => console.error('Erreur lors du partage :', error));
+        navigator.share({
+            title: 'CodeANGEL le dev 😊',
+            text: 'Description de votre site',
+            url: 'https://codeangel.pythonanywhere.com'
+        })
+            .then(() => console.log('Partage réussi !'))
+            .catch((error) => console.error('Erreur lors du partage :', error));
     });
-  } else {
-    shareButton.style.display = 'none'; // Masquer le bouton si l'API de partage n'est pas prise en charge
-  }
 
 
 </script>
