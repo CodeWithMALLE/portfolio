@@ -1,0 +1,31 @@
+{% extends 'common/base.html' %}
+{% block title %}Projets{% endblock %}
+{% block bodyId %}projets{% endblock %}
+
+{% block contenu %}
+<div class="row">
+    <div class="col-12 text-center">
+        <h1>Permettez-moi de vous présenter quelques unes de mes réalisations.
+            À travers mon parcours en informatique et mon expertise dans
+            le domaine, j'ai réalisé plusieurs projets impressionnants qui démontrent
+            ma créativité, ma maîtrise technique et mon engagement envers l'excellence.
+        </h1>
+    </div>
+</div>
+<div class="row">
+    {% for projet in projets %}
+        <div class="col-md-4 col-sm-3">
+            <div class="card">
+                <img src="{{ projet.img.url }}" alt="" class="card-img-top">
+                <div class="card-body">
+                    <h2 class="card-title">{{projet.name}}</h2>
+                    <p class="card-text">{{projet.describes}}</p>
+                    <a href="" class="card-link btn btn-primary">Voir le projet</a>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+    <h3 class="text-danger">Pas de projet pour le moment</h3>
+    {% endfor %}
+</div>
+{% endblock %}

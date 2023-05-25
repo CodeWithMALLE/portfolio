@@ -1,4 +1,4 @@
-{% extends 'mysite/base.html' %}
+{% extends 'common/base.html' %}
 
 {% block title %}Qui est-il?{% endblock %}
 {% block bodyId %}a-propos{% endblock %}
@@ -59,7 +59,7 @@
                     applications plus complexes. J'ai également contribué à des
                     projets open source, ce qui m'a permis de développer mes
                     compétences et d'apprendre des meilleures pratiques de l'industrie.
-                    <p><a href="#">En savoir plus sur mes projets</a></p>
+                    <p><a href="{% url 'mysite:projets' %}">En savoir plus sur mes projets</a></p>
                     <br>Mon objectif est de
                     continuer à explorer de nouvelles
                     technologies et à développer des projets innovants qui

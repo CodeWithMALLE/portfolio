@@ -1,10 +1,47 @@
 * {
     font-family: Comic Sans MS, Comic Sans, cursive;
 }
-
+a:hover{
+    color: white;
+}
 body {
     background-color: #042a2b;
     color: white;
+}
+
+.trans {
+    background-color: yellow;
+}
+
+#annim-cv-download {
+    animation-name: cvAnnim;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    border-color: blue;
+    color: blue;
+    font-size: 2em;
+}
+#contact{
+    font-size: large;
+    animation-name: conatct;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+@keyframes conatct {
+    to {
+        box-shadow: 0 0 5px 10px #8D0033;
+    }
+}
+
+@keyframes cvAnnim {
+    to {
+        box-shadow: 0 0 5px 10px blue;
+    }
+}
+
+.talents > div > h2 {
+    color: #8D0033;
+    background-color: white;
 }
 
 .panel-body {

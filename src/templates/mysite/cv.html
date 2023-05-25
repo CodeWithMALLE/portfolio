@@ -1,0 +1,85 @@
+{% extends "common/base.html" %}
+{% load static %}
+{% block title %}CV{% endblock %}
+{% block bodyId%}cv{% endblock %}
+
+{% block contenu %}
+<div class="row">
+    <div class="col-md-6 talents">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h1 class="panel-title">Mes Talents</h1>
+            </div>
+            <div class="panel-body">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><h2 class="text-center">
+                        Technologies/Languages</h2>
+                    </div>
+                    {% for key, val in dev.items %}
+                    <div class="panel-body">
+                        <h3 class="text-uppercase">{{key}}</h3>
+                        <div class="progress bg-black">
+                            <div class="progress-bar bg-white progress-stacked" data-width="70"
+                                 role="progressbar" style="width: {{val}}%"></div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p class="text-danger text-sm-center fs-3">Données non disponibles !</p>
+                    {% endfor %}
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><h2 class="text-center">
+                        Conception/Modélisation</h2>
+                    </div>
+                    {% for key, val in mod.items %}
+                    <div class="panel-body">
+                        <h3 class="text-uppercase">{{key}}</h3>
+                        <div class="progress bg-black">
+                            <div class="progress-bar bg-white progress-stacked"
+                                 data-width="70"
+                                 role="progressbar" style="width: {{val}}%"></div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p class="text-danger text-sm-center fs-3">Données non disponibles !</p>
+                    {% endfor %}
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><h2 class="text-center">Gestion de Code
+                        Source/Versioning</h2></div>
+                    {% for key, val in ver.items %}
+                    <div class="panel-body">
+                        <h3 class="text-uppercase">{{key}}</h3>
+                        <div class="progress bg-black">
+                            <div class="progress-bar bg-white progress-stacked" data-width="70"
+                                 role="progressbar" style="width: {{val}}%"></div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p class="text-danger text-sm-center fs-3">Données non disponibles !</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h1 class="panel-title">Mon CV</h1>
+            </div>
+            <div class="panel-body">
+                <figure class="m-0">
+                    <img src="{% static 'mysite/img/capture_cv.png' %}" alt="Capture de mon CV"
+                         style="width: 100%; height: auto; object-fit: cover">
+                </figure>
+                <p class="text-center mt-3"><a href="javascript:void(0)"
+                                               class="btn btn-outline-primary btn-lg"
+                                               id="annim-cv-download">Télechargez
+                    -le</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

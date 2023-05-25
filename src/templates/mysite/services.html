@@ -1,0 +1,72 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block title %}Services{% endblock %}
+
+{% block bodyId %}services{% endblock %}
+
+{% block contenu %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <img src="{% static 'mysite/img/codeangel.png' %}" alt="Intro" class="card-img"
+                 width="100%" height="400px" style="object-fit: cover">
+            <div class="card-img-overlay text-white fs-1  bg-black bg-opacity-75">
+                <h2 class="card-title fw-bold text-center" style="font-size: larger">Qui sommes-nous
+                    ?</h2>
+                <br>
+                <p class="card-text" style="line-height: 2; letter-spacing: 2px">Nous sommes une
+                    équipe de
+                    développeurs web et mobile
+                    expérimentés offrant des solutions informatiques sur mesure.
+                    <br>Notre objectif est de créer une présence en ligne puissante pour nos clients
+                    grâce à nos compétences en développement web et mobile.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    {% for card, data in cards.items %}
+    <div class="col-md-6">
+        <h1 class="text-center text-uppercase mt-5">{{ card }}</h1>
+        <div class="card text-white">
+            <img src="{{ data.0 }}" alt="" class="card-img"
+                 style="object-fit: cover; height: 350px">
+            <div class="card-img-overlay bg-black bg-opacity-75 overflow-x-auto">
+                <div class="card-body fw-bold text-center fs-1">
+                    <p class="card-text">
+                        {% autoescape off %}
+                        {{data.1}}
+                        {% endautoescape %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="row mt-5">
+    <div class="col-md-12">
+        <div class="card">
+            <img src="{% static 'mysite/img/codeangel.png' %}" alt="Intro" class="card-img"
+                 width="100%" height="400px" style="object-fit: cover">
+            <div class="card-img-overlay text-white fs-1  bg-black bg-opacity-75">
+                <h2 class="card-title fw-bold text-center" style="font-size: larger">Faites équipe
+                    avec nous pour des solutions informatiques de qualité</h2>
+                <br>
+                <p class="card-text">Notre équipe de développeurs expérimentés est prête à vous
+                    aider à atteindre vos objectifs en ligne.
+                    <br><br>Contactez-nous dès aujourd'hui pour discuter de vos besoins en solutions
+                    informatiques.
+                </p>
+                <address>
+                    <p class="text-center"><a id="contact" href="#"
+                                              class="btn btn-danger btn-lg">Nous contacter
+                    </a></p>
+                </address>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
