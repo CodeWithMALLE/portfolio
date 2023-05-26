@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from .models import Projects, Clients
+from django.shortcuts import render, redirect
+from .models import Projects, Clients, Contact
+from .forms import ContactForm
 import os
 
 
@@ -89,3 +90,29 @@ def services(request):
 def projets(request):
 	list_projet = Projects.objects.all()
 	return render(request, "mysite/projects.html", context={"projets": list_projet})
+
+
+def contact(request):
+	template = ""
+	form = ContactForm()
+
+	if len(request.POST) > 0:
+		form = ContactForm(request.POST)
+
+		if form.is_valid():
+			form.fisrt_name = request.POST["first_name"]
+			form.last_name = request.POST["last_name"]
+			form.email = request.POST["email"]
+			form.tel = request.POST["tel"]
+			form.msg = request.POST["msg"]
+
+			form.save()
+			template = "mysite/index.html"
+			return redirect("mysite:index")
+		else:
+			template = "mysite/contact.html"
+			return render(request, template)
+	else:
+		template = "mysite/contact.html"
+		context = {}
+		return render(request, template, context)

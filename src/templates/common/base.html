@@ -30,11 +30,24 @@
             margin: 0;
         }
 
+        #menu {
+            position: sticky;
+            top: -220px;
+            left: 0;
+            width: 100%;
+            transition: top 0.3s;
+        }
+
+        #menu.show {
+            top: -1px;
+        }
+
+
     </style>
 </head>
 <body id="{% block bodyId %}generic{% endblock %}" style="">
 
-<header class="" style="position: sticky; top: -1px; z-index: 100">
+<header class="" id="menu" style="z-index: 1">
     <div class="container-fluid container-md" style="background-color: #042a2b">
         <div class="row">
             <div class="col-sm-6 offset-sm-1 mt-5">
@@ -44,7 +57,7 @@
                         <img src="{% static 'mysite/img/logo_transparent.png' %}"
                              alt="mon logo" class="col-4" style="width: 40px; height: auto;
                                 padding: 0">
-                        <span class="col-8">Moussa MALLE alias CodeANGEL</span>
+                        <span class="col-8">Moussa MALLE</span>
                     </a>
                 </h1>
                 <small style="font-size: medium">Conception/Développement/Logiciel</small>
@@ -86,7 +99,8 @@
                                                         class="nav-link">Mes
                                 Services</a></li>
                             <li class="nav-item"><a href="#" class="nav-link">Mon Blog</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link">Mon Contact</a></li>
+                            <li class="nav-item"><a href="{% url 'mysite:contact' %}"
+                                                    class="nav-link">Mon Contact</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -156,7 +170,16 @@
             .catch((error) => console.error('Erreur lors du partage :', error));
     });
 
-
+    let prevScrollpos = window.scrollY;
+    window.onscroll = function () {
+        let currentScrollPos = window.scrollY;
+        if (prevScrollpos > currentScrollPos) {
+            document.getElementById("menu").classList.add("show");
+        } else {
+            document.getElementById("menu").classList.remove("show");
+        }
+        prevScrollpos = currentScrollPos;
+    };
 </script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

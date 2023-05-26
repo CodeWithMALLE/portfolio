@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, a_propos, cv, services, projets
+from .views import index, a_propos, cv, services, projets, contact
 
 app_name = "mysite"
 
@@ -9,4 +9,5 @@ urlpatterns = [
     path("cv/", cv, name="cv"),
     path("services/", services, name="services"),
     path("projets/", projets, name="projets"),
+    path("contact/", contact, name="contact"),
 ]

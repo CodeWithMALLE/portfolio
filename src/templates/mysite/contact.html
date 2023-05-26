@@ -1,0 +1,55 @@
+{% extends "common/base.html" %}
+
+{% block title %}Contact{% endblock %}
+
+{% block bodyId %}contact{% endblock %}
+
+{% block contenu %}
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="text-center fs-1" style="font-size: 24px">Nous contacter</h1>
+        <p style="color: blue; font-weight: bold">Vous avez des
+            questions, des
+            suggestions
+            ou besoin d'un
+            service ?
+            N'hésitez pas à nous contacter en utilisant le formulaire ci-dessous.
+        </p>
+        <form class="col-md-12" action="" method="post">
+            {% csrf_token %}
+            <hr>
+            <div class="col-md-4 offset-md-2">
+                <div class="from-group">
+                    <label for="name" class="form-label">Votre nom complet</label>
+                    <div class="input-group">
+                        <input name="first_name" type="text" id="name"
+                               class="form-control contact-input"
+                               placeholder="votre prénom">
+                        <input name="last_name" type="text" id="last_name" class="form-control contact-input"
+                               placeholder="votre nom">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Votre adresse mail</label>
+                    <input name="email" type="email" class="form-control contact-input" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="tel" class="form-label">Votre contact (de préference
+                        whatssap)</label>
+                    <input name="tel" type="tel" class="form-control contact-input" id="tel">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="msg">Votre message</label>
+                <textarea name="msg" id="msg" cols="30" rows="6"
+                          class="form-control contact-input"></textarea>
+            </div>
+            <div class="col-md-12 text-center">
+                <p class="mt-2">
+                    <input type="submit" class="btn btn-primary fs-1" value="SOUMETTRE">
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

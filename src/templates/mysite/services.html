@@ -11,7 +11,7 @@
         <div class="card">
             <img src="{% static 'mysite/img/codeangel.png' %}" alt="Intro" class="card-img"
                  width="100%" height="400px" style="object-fit: cover">
-            <div class="card-img-overlay text-white fs-1  bg-black bg-opacity-75">
+            <div class="card-img-overlay text-white fs-1  bg-black bg-opacity-75 overflow-x-auto">
                 <h2 class="card-title fw-bold text-center" style="font-size: larger">Qui sommes-nous
                     ?</h2>
                 <br>
@@ -51,7 +51,7 @@
         <div class="card">
             <img src="{% static 'mysite/img/codeangel.png' %}" alt="Intro" class="card-img"
                  width="100%" height="400px" style="object-fit: cover">
-            <div class="card-img-overlay text-white fs-1  bg-black bg-opacity-75">
+            <div class="card-img-overlay text-white fs-1  bg-black bg-opacity-75 overflow-x-auto">
                 <h2 class="card-title fw-bold text-center" style="font-size: larger">Faites équipe
                     avec nous pour des solutions informatiques de qualité</h2>
                 <br>
@@ -61,7 +61,7 @@
                     informatiques.
                 </p>
                 <address>
-                    <p class="text-center"><a id="contact" href="#"
+                    <p class="text-center"><a id="contact" href="{% url 'mysite:contact' %}"
                                               class="btn btn-danger btn-lg">Nous contacter
                     </a></p>
                 </address>

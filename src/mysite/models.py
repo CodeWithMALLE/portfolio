@@ -37,3 +37,15 @@ class Projects(models.Model):
 		verbose_name = "Projet"
 		verbose_name_plural = "Les Projets"
 
+
+class Contact(models.Model):
+	first_name = models.CharField(max_length=50, verbose_name="Prénom")
+	last_name = models.CharField(max_length=50, verbose_name="Nom de famille")
+	email = models.EmailField(verbose_name="Adresse mail")
+	tel = models.CharField(verbose_name="Numéro de téléphone", max_length=50)
+	msg = models.TextField()
+
+	class Meta:
+		verbose_name = "Contact"
+		verbose_name_plural = "Les Contacts"
+
