@@ -45,6 +45,9 @@ class Contact(models.Model):
 	tel = models.CharField(verbose_name="Numéro de téléphone", max_length=50)
 	msg = models.TextField()
 
+	def __str__(self):
+		return f"Message de {self.last_name}"
+
 	class Meta:
 		verbose_name = "Contact"
 		verbose_name_plural = "Les Contacts"

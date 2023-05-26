@@ -1,10 +1,28 @@
 from django.contrib import admin
-from .models import Projects, Clients
+from .models import Projects, Clients, Contact
 
 
 # from django.contrib.admin.templates import admin
 
 # Register your models here.
+
+
+class ContactAdmin(admin.ModelAdmin):
+	list_display = ("last_name", "first_name", "tel", "msg")
+	list_filter = ("tel", "last_name")
+	search_fields = ["tel", "last_name"]
+
+	fieldsets = (
+		("Nom", {
+			"fields": ("first_name", "last_name"),
+		}),
+		("Contats", {
+			"fields": ("tel", "email"),
+		}),
+		("Messages", {
+			"fields": ('msg', ),
+		}),
+	)
 
 
 class ClientsAdmin(admin.ModelAdmin):
@@ -38,7 +56,7 @@ class PrjectsAdmin(admin.ModelAdmin):
 		}),
 		(
 			"Le client", {
-				"fields": ("client", ),
+				"fields": ("client",),
 			}
 		)
 	)
@@ -51,3 +69,4 @@ class PrjectsAdmin(admin.ModelAdmin):
 
 admin.site.register(Projects, PrjectsAdmin)
 admin.site.register(Clients, ClientsAdmin)
+admin.site.register(Contact, ContactAdmin)

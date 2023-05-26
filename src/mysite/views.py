@@ -1,10 +1,19 @@
 from django.shortcuts import render, redirect
 from .models import Projects, Clients, Contact
 from .forms import ContactForm
+from django.core.mail import send_mail
 import os
 
 
 # Create your views here.
+
+
+def send_email(request, msg, from_email):
+	subject = "Besoin d'aide depuis CodeANGEL.com"
+	message = msg
+	from_email = from_email
+	recipient_list = ["code.angel.091@gmail.com"]
+	send_mail(subject, message, from_email, recipient_list)
 
 
 def index(request):
@@ -105,13 +114,17 @@ def contact(request):
 			form.email = request.POST["email"]
 			form.tel = request.POST["tel"]
 			form.msg = request.POST["msg"]
-
 			form.save()
-			template = "mysite/index.html"
-			return redirect("mysite:index")
-		else:
+			send_email(request, form.msg + "\nTel: " + form.tel, form.email)
+			send_ok = "Merci !\nVotre message a bien été envoyé, vous serez contacté dans le " \
+					  "meilleur délai"
+			# return redirect("mysite:contact")
 			template = "mysite/contact.html"
-			return render(request, template)
+			return render(request, template, context={"msg_ok": send_ok})
+		else:
+			errors = "Veuillez bien remplir tous les champs !"
+			template = "mysite/contact.html"
+			return render(request, template, context={"errors": errors})
 	else:
 		template = "mysite/contact.html"
 		context = {}

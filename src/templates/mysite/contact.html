@@ -18,6 +18,8 @@
         <form class="col-md-12" action="" method="post">
             {% csrf_token %}
             <hr>
+            <p class="text-danger text-center">{% if errors %}{{errors}}{% endif %}</p>
+            <p class="text-secondary text-center">{% if msg_ok %}{{msg_ok}}{% endif %}</p>
             <div class="col-md-4 offset-md-2">
                 <div class="from-group">
                     <label for="name" class="form-label">Votre nom complet</label>
