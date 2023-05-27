@@ -6,6 +6,11 @@
 a:hover{
     color: white;
 }
+
+.contact-what:hover{
+    color: black;
+}
+
 body {
     background-color: #042a2b;
     color: white;

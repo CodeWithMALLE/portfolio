@@ -17,6 +17,7 @@ def send_email(request, msg, from_email):
 
 
 def index(request):
+	articles = None
 	return render(request, "mysite/index.html")
 
 
@@ -50,11 +51,11 @@ def services(request):
 			base + "web-site.png",
 			"Nous concevons et développons des "
 			"sites web professionnels et "
-			"modernes  quirépondent aux besoins "
+			"modernes  qui répondent aux besoins "
 			"uniques  de nos clients.<br><br>Nos "
 			"sites web sont conçus pour offrir une"
-			"expérience utilisateur exceptionnelle"
-			"et une navigation fluide."
+			" expérience utilisateur exceptionnelle"
+			" et une navigation fluide."
 		),
 		"Applications web et mobiles sur mesure": (
 			base + "app.png",

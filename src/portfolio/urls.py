@@ -23,7 +23,8 @@ app_name = "portfolio"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include("mysite.urls"), name="site")
+    path("", include("mysite.urls"), name="site"),
+    path('blog/', include("blog.urls"), name="blog")
 ]
 
 if settings.DEBUG:
