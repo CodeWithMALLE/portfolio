@@ -59,10 +59,9 @@
                 <h2><span class="glyphicon glyphicon-bullhorn"></span> Actualités</h2>
             </div>
             <div class="panel-body">
-                <p>Actu 1...</p>
-                <p>Actu 2...</p>
-                <p>Actu 3...</p>
-                <p>Actu 4...</p>
+                {% for article in articles %}
+                    <p>{{article.titre}}</p>
+                {% endfor %}
             </div>
         </div>
     </div>

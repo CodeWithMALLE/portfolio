@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .models import Projects, Clients, Contact
 from .forms import ContactForm
 from django.core.mail import send_mail
+from blog.models import Articles
+
 import os
 
 
@@ -17,8 +19,8 @@ def send_email(request, msg, from_email):
 
 
 def index(request):
-	articles = None
-	return render(request, "mysite/index.html")
+	articles = Articles.objects.all()
+	return render(request, "mysite/index.html", {"articles": articles})
 
 
 def a_propos(request):
@@ -130,3 +132,7 @@ def contact(request):
 		template = "mysite/contact.html"
 		context = {}
 		return render(request, template, context)
+
+
+def page_not_found_view(request, exception):
+	return render(request, "common/404.html")

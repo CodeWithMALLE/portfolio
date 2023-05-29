@@ -20,6 +20,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 app_name = "portfolio"
+handler404 = "mysite.views.page_not_found_view"
+# handler404 = 'myapp.views.page_not_found_view'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
