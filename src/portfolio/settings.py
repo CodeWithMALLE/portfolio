@@ -32,6 +32,7 @@ SECRET_KEY = "django-insecure-aau3)_3gzofb8ch(wdoc+dw!6+4zhc6i_tarly*-yrvs#1pvj+
 DEBUG = True
 # DEBUG = False
 
+
 ALLOWED_HOSTS = ["*"]
 # ALLOWED_HOSTS = ["codeangel.pythonanywhere.com"]
 
