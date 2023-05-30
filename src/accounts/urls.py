@@ -1,6 +1,6 @@
 from django.urls import path
 
-from src.accounts.views import login_user, signup, logout_user
+from .views import login_user, signup, logout_user
 
 app_name = "accounts"
 urlpatterns = [

@@ -1,4 +1,4 @@
-{% extends 'common/base.html' %}
+{% extends "common/base_blog.html" %}
 {% block body %}account-login{% endblock %}
 
 {% block title %}login{% endblock %}
@@ -7,8 +7,11 @@
     <div class="col-md-6 offset-md-3">
         <form action="" method="post">
             {% csrf_token %}
-            <h1 class="text-warning">Connecter vous à votre compte d'auteur ou en créer pour
-                pouvoir publier des articles</h1>
+            {% if errors %}
+                <ul>
+                    <li class="text-danger">{{errors}}</li>
+                </ul>
+            {% endif %}
             <div class="form-group">
                 <label for="username" class="form-label">Nom d'utilisateur ou email</label>
                 <input type="text" id="username" name="username" class="form-control contact-input">
