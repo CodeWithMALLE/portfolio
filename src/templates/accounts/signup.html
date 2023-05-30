@@ -1,0 +1,34 @@
+{% extends 'common/base.html' %}
+{% block body %}account-signup{% endblock %}
+
+{% block title %}signup{% endblock %}
+{% block contenu %}
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="first_name" class="form-label">Nom d'utilisateur ou email</label>
+                <input type="text" id="first_name" name="first_name" class="form-control contact-input">
+            </div>
+            <div class="form-group">
+                <label for="last_name" class="form-label">Nom</label>
+                <input type="text" id="last_name" name="last_name" class="form-control contact-input">
+            </div>
+            <div class="form-group">
+                <label for="username" class="form-label">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username" class="form-control contact-input">
+            </div>
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" class="form-control contact-input">
+            </div>
+            <div class="form-group">
+                <label for="password" class="form-label">Choisir un mot de passe</label>
+                <input type="password" id="password" name="password" class="form-control contact-input">
+            </div>
+            <input type="submit" class="btn btn-primary btn-lg" value="Créer un compte">
+        </form>
+    </div>
+</div>
+{% endblock %}

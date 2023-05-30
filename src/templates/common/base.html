@@ -48,6 +48,7 @@
 <body id="{% block bodyId %}generic{% endblock %}" style="">
 
 <header class="" id="menu" style="z-index: 1">
+    {% block header %}
     <div class="container-fluid container-md" style="background-color: #042a2b">
         <div class="row">
             <div class="col-sm-6 offset-sm-1 mt-5">
@@ -112,7 +113,7 @@
             </div>
         </div>
     </div>
-
+    {% endblock %}
 </header>
 <main>
     <section class="contenu">
@@ -184,8 +185,8 @@
 
     shareButton.addEventListener('click', () => {
         navigator.share({
-            title: 'CodeANGEL le dev 😊',
-            text: 'Description de votre site',
+            title: 'Votre bussiness merite une informatisation !',
+            text: 'Veuillez commander vos projet web & mobile chez CODEANGEL.COM',
             url: 'https://codeangel.pythonanywhere.com'
         })
             .then(() => console.log('Partage réussi !'))

@@ -26,7 +26,8 @@ handler404 = "mysite.views.page_not_found_view"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("mysite.urls"), name="site"),
-    path('blog/', include("blog.urls"), name="blog")
+    path('blog/', include("blog.urls"), name="blog"),
+    path('accounts/', include("accounts.urls"), name="accounts"),
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,26 @@
+{% extends 'common/base.html' %}
+{% block body %}account-login{% endblock %}
+
+{% block title %}login{% endblock %}
+{% block contenu %}
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <form action="" method="post">
+            {% csrf_token %}
+            <h1 class="text-warning">Connecter vous à votre compte d'auteur ou en créer pour
+                pouvoir publier des articles</h1>
+            <div class="form-group">
+                <label for="username" class="form-label">Nom d'utilisateur ou email</label>
+                <input type="text" id="username" name="username" class="form-control contact-input">
+            </div>
+            <div class="form-group">
+                <label for="username" class="form-label">Mot de passe</label>
+                <input type="password" id="password" name="password" class="form-control contact-input">
+            </div>
+            <input type="submit" class="btn btn-primary btn-lg" value="Se connecter">
+            <a type="submit" class="link-primary" href="{% url 'accounts:signup' %}">Créer
+                un compte</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
