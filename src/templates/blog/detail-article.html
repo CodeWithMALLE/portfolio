@@ -1,0 +1,40 @@
+{% extends 'common/base_blog.html' %}
+
+{% block title %}Detail{% endblock %}
+
+{% block suite-contenu %}
+<div class="row">
+    <div class="col-12">
+        <img src="{{article.img.url}}" style="object-fit: cover"
+             alt="photo d'ullustration" class="rounded">
+        <h1>{{article.titre}}</h1>
+        <br>
+        <p>{{article.content}}</p>
+        <br>
+        <p class="text-right">Article publié par <span class="fw-bold">{{article.auteur.username|upper}}</span> le
+                    <span class="fst-italic fw-bold">{{article.date_creation}}</span></p>
+    </div>
+    <div class="col-12">
+        <p class="inline-group"><a href="#"><span class="glyphicon glyphicon-share"></span>Partager</a></p>
+        <form action="{% url 'blog:comment-article' article.slug %}" class="form-inline"
+              method="post">
+            {% csrf_token %}
+            <textarea class="form-control contact-input" name="comment"></textarea>
+            <input class="form-control btn btn-primary" type="submit" value="commenter">
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 text-center">
+        <h1 class="text-uppercase text-black-50">Les commentaires</h1>
+        {% for comment in comments %}
+        <dl>
+            <dt>{% if comment.user.username %}{{comment.user.username}}{% else %}NON
+                IDENTIFIE{% endif %}</dt>
+            <dd class="ms-3">{{comment.content}}</dd>
+        </dl>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

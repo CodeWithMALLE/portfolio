@@ -16,9 +16,7 @@ def login_user(request):
 		username = request.POST["username"]
 		password = request.POST["password"]
 
-		user = authenticate(username=username, password=password)
-
-		if user:
+		if user := authenticate(username=username, password=password):
 			login(request, user=user)
 			return redirect("blog:index")
 		else:
@@ -38,7 +36,7 @@ def signup(request):
 			user = User.objects.create_user(
 				username=username, last_name=last_name,
 				first_name=first_name, email=email, password=password
-				)
+			)
 		except:
 			errors = "Formulaire invlaide ! tous les champs sont obligatoires"
 			return render(request, "accounts/signup.html", {"errors": errors})
@@ -46,4 +44,3 @@ def signup(request):
 		login(request, user=user)
 		return redirect("blog:index")
 	return render(request, "accounts/signup.html")
-
