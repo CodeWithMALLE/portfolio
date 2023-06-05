@@ -31,14 +31,8 @@ def commenter(request, slug):
 	if request.method == "POST":
 		content = request.POST["comment"]
 		if content != "":
-			if request.user.is_authenticated:
-				user = request.user
-				commentaire = Commentaires(content=content, user=user)
-			else:
-				user = AccountsAuth.objects.create_user(
-					"Non identifié", "Non identifié"
-					)
-				commentaire = Commentaires(content=content, user=user)
+			user = request.user
+			commentaire = Commentaires(content=content, user=user)
 			commentaire.save()
 			article = get_object_or_404(Articles, slug=slug)
 			article.commentaire.add(commentaire)
