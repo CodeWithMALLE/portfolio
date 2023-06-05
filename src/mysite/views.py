@@ -10,6 +10,10 @@ import os
 # Create your views here.
 
 
+def seo(request):
+	return render(request, "seo/googlec21dabb754e74bff.html")
+
+
 def send_email(request, msg, from_email):
 	subject = "Besoin d'aide depuis CodeANGEL.com"
 	message = msg
