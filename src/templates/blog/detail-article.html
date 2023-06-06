@@ -24,6 +24,7 @@
     <div class="col-12">
         <img src="{{article.img.url}}" style="object-fit: cover;"
              alt="photo d'ullustration" class="rounded img-mobile">
+        {% autoescape off %}
         <h1 class="card-title">{{article.titre}}</h1>
         <br>
         <p>{{article.content}}</p>
@@ -31,11 +32,17 @@
         <p class="text-right">Article publié par <span class="fw-bold">{{article.auteur.username|upper}}</span>
             le
             <span class="fst-italic fw-bold">{{article.date_creation}}</span></p>
+        {% endautoescape %}
     </div>
     {% if user.is_authenticated %}
     <div class="col-12">
+
         <p class="inline-group"><a href="#"><span class="glyphicon glyphicon-share"></span>Partager</a>
-        </p>
+        {% if user == auteur %} <a class="btn btn-warning btn-lg"
+                                   href="{% url 'blog:modifier-article' article.slug %}">Modifier
+                cet
+                article</a>
+            {% endif %}</p>
         <form action="{% url 'blog:comment-article' article.slug %}" class="form-inline"
               method="post">
             {% csrf_token %}

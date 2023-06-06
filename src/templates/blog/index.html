@@ -8,7 +8,8 @@
     {% for article in articles %}
     <div class="col-md-4">
         <div class="card">
-            <img src="{{ article.img.url }}" alt="Image d'illustration"
+            <img src="{% if article.img %}{{ article.img.url }}{% endif %}"
+                 alt="Image d'illustration"
                  class="card-img-top">
             <div class="card-body">
                 <h1 class="card-title">{{ article.titre }}</h1>

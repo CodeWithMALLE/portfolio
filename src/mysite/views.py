@@ -23,7 +23,7 @@ def send_email(request, msg, from_email):
 
 
 def index(request):
-	articles = Articles.objects.all()
+	articles = Articles.objects.all().order_by("-date_creation")[:3]
 	return render(request, "mysite/index.html", {"articles": articles})
 
 

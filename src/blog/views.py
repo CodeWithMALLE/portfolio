@@ -1,7 +1,7 @@
-
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 
+from .forms import ArticleForm
 from .models import Articles, Categories, Commentaires
 from accounts.models import AccountsAuth
 
@@ -17,14 +17,49 @@ def index(request):
 
 def publier_article(request):
 	if request.user.is_authenticated:
-		return render(request, "blog/publier_article.html")
+		form = ArticleForm(request.FILES)
+		user = request.user
+		if request.method == "POST":
+			form = ArticleForm(request.POST, request.FILES)
+			if form.is_valid():
+				article = form.save(commit=False)
+				article.auteur = user
+				article.save()
+				return redirect("blog:index")
+			return render(request, "blog/publier_article.html", {"form": form})
+		return render(request, "blog/publier_article.html", {"form": form})
+
+	return redirect("accounts:login_user")
+
+
+def modifier_article(request, slug):
+	if request.user.is_authenticated:
+		user = request.user
+		article = get_object_or_404(Articles, slug=slug)
+
+		if request.POST:
+			if article.auteur == user:
+				form = ArticleForm(request.POST, instance=article)
+				if form.is_valid():
+					formm = form.save(commit=False)
+					formm.auteur = user
+					form.save(commit=True)
+					return redirect("blog:index")
+		form = ArticleForm(instance=article)
+		return render(request, "blog/modifier_article.html", {"form": form})
 	return redirect("accounts:login_user")
 
 
 def detail_article(request, slug):
 	article = get_object_or_404(Articles, slug=slug)
 	comments = article.commentaire.all()
-	return render(request, "blog/detail-article.html", {"article": article, "comments": comments})
+	auteur = article.auteur
+	return render(
+		request, "blog/detail-article.html", {
+			"article": article, "comments": comments,
+			"auteur": auteur
+		}
+		)
 
 
 def commenter(request, slug):
@@ -38,4 +73,3 @@ def commenter(request, slug):
 			article.commentaire.add(commentaire)
 			article.save()
 	return redirect(reverse("blog:index"))
-

@@ -39,13 +39,12 @@ class Articles(models.Model):
 	titre = models.CharField(max_length=100, verbose_name="Titre")
 	slug = models.SlugField(null=True)
 	img = models.ImageField(
-		upload_to="articles_pictures/", blank=True, null=True,
-		verbose_name="Image d'illustration"
+		upload_to="articles_pictures/", verbose_name="Image d'illustration"
 		)
 	content = models.TextField()
 	date_creation = models.DateTimeField(auto_now_add=True, auto_now=False)
 	categorie = models.ForeignKey(Categories, on_delete=models.CASCADE, verbose_name="Catégorie")
-	commentaire = models.ManyToManyField(Commentaires)
+	commentaire = models.ManyToManyField(Commentaires, null=True, blank=True)
 	auteur = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
 	def save(self, *args, **kwargs):
