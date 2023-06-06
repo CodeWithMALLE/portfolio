@@ -63,10 +63,11 @@
                     blog</h1>
                 {% for article in articles %}
                 <div class="card">
+                    {% autoescape off %}
                     <a href="{% url 'blog:detail-article' article.slug %}"
                        class="text-black fs-1 fw-bold text-center">
-                        {% if article.img.url %}
-                        <img src="{{ article.img }}" alt="image du projet {{article.nom}}"
+                        {% if article.img %}
+                        <img src="{{ article.img.url }}" alt="image du projet {{article.nom}}"
                              class="rounded card-img" style="width: 100%; height: 100px;
                              object-fit: cover;">
                         {% endif %}
@@ -77,6 +78,7 @@
                             </div>
                         </div>
                     </a>
+                    {% endautoescape %}
                 </div>
                 <br>
                 {% endfor %}
