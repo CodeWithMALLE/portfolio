@@ -38,14 +38,18 @@ def modifier_article(request, slug):
 		article = get_object_or_404(Articles, slug=slug)
 
 		if request.POST:
+			print(article.auteur, user, sep="-")
 			if article.auteur == user:
 				form = ArticleForm(request.POST, request.FILES, instance=article)
+				print("validation en attente !")
 				if form.is_valid():
+					print("v ok !")
 					formm = form.save(commit=False)
 					formm.auteur = user
 					form.save(commit=True)
 					return redirect("blog:index")
-		form = ArticleForm(request.FILES, instance=article)
+		print("v non ok")
+		form = ArticleForm(instance=article)
 		return render(request, "blog/modifier_article.html", {"form": form})
 	return redirect("accounts:login_user")
 
