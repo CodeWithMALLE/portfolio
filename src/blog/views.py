@@ -39,13 +39,13 @@ def modifier_article(request, slug):
 
 		if request.POST:
 			if article.auteur == user:
-				form = ArticleForm(request.POST, instance=article)
+				form = ArticleForm(request.POST, request.FILES, instance=article)
 				if form.is_valid():
 					formm = form.save(commit=False)
 					formm.auteur = user
 					form.save(commit=True)
 					return redirect("blog:index")
-		form = ArticleForm(instance=article)
+		form = ArticleForm(request.FILES, instance=article)
 		return render(request, "blog/modifier_article.html", {"form": form})
 	return redirect("accounts:login_user")
 
