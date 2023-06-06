@@ -37,7 +37,8 @@
     {% if user.is_authenticated %}
     <div class="col-12">
 
-        <p class="inline-group"><a href="#"><span class="glyphicon glyphicon-share"></span>Partager</a>
+        <p class="inline-group"><a href="javascript:void(0)" id="share3"><span
+                class="glyphicon glyphicon-share"></span>Partager</a>
         {% if user == auteur %} <a class="btn btn-warning btn-lg"
                                    href="{% url 'blog:modifier-article' article.slug %}">Modifier
                 cet
@@ -66,4 +67,11 @@
     </div>
 
 </div>
+{% endblock %}
+
+{% block script %}
+<script>
+    let share3 = document.getElementById("share3")
+    share(share3, "Les articles de codeangel", "https://codeangel.pythonanywhere.com/blog/")
+</script>
 {% endblock %}

@@ -190,18 +190,20 @@
         debloquer_la_suite()
     })();
 
-    const shareButton = document.getElementById('shareButton');
+    function share(shareButton, titre, url) {
 
-    shareButton.addEventListener('click', () => {
-        navigator.share({
-            title: 'Votre bussiness merite une informatisation !',
-            text: 'Veuillez commander vos projet web & mobile chez CODEANGEL.COM',
-            url: 'https://codeangel.pythonanywhere.com'
-        })
-            .then(() => console.log('Partage réussi !'))
-            .catch((error) => console.error('Erreur lors du partage :', error));
-    });
+        shareButton.addEventListener('click', () => {
+            navigator.share({
+                title: titre,
+                url: url
+            })
+                .then(() => console.log('Partage réussi !'))
+                .catch((error) => console.error('Erreur lors du partage :', error));
+        });
+    }
 
+    let share1 = document.getElementById("shareButton")
+    share(share1, "Votre bussiness merite une informatisation !", "https://codeangel.pythonanywhere.com")
     let prevScrollpos = window.scrollY;
     window.onscroll = function () {
         let currentScrollPos = window.scrollY;

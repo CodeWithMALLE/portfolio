@@ -22,10 +22,19 @@
                 {% endautoescape %}
             </div>
         </div>
-        <p class="inline-group"><a href="#"><span class="glyphicon glyphicon-share"></span>Partager</a></p>
+        <p class="inline-group"><a href="javascript:void(0)" id="share2"><span
+                class="glyphicon glyphicon-share"></span>
+            Partager</a></p>
 
     </div>
     {% endfor %}
 </div>
 
+{% endblock %}
+
+{% block script %}
+<script>
+    let share2 = document.getElementById("share2")
+    share(share2, "Les articles de codeangel", "https://codeangel.pythonanywhere.com/blog/")
+</script>
 {% endblock %}
