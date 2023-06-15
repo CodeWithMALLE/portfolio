@@ -226,6 +226,22 @@
         </div>
     </div>
 </div>
+{% block script %}
+<script>
+function getWidth(){
+    let currentWidth = window.innerWidth
+    if(currentWidth < 576){
+        console.log("je suis dans xs")
+    }
+    else{
+        console.log("dans du lg")
+    }
+}
+// setInterval(() => getWidth(), 1000)
+
+
+</script>
+{% endblock %}
 
 {% endblock %}
 

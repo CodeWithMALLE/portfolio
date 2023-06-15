@@ -1,4 +1,6 @@
+from django.core.validators import RegexValidator
 from django.db import models
+from django_countries.fields import CountryField
 
 
 # Create your models here.
@@ -13,7 +15,9 @@ class Clients(models.Model):
 
 	last_name = models.CharField(max_length=50, verbose_name="Nom du client")
 	first_name = models.CharField(max_length=50, verbose_name="Prénom du client")
-	profil = models.CharField(max_length=50, verbose_name="Status du client", choices=options_profil)
+	profil = models.CharField(
+		max_length=50, verbose_name="Status du client", choices=options_profil
+	)
 	tel = models.CharField(max_length=50, verbose_name='Numéro de télephone')
 	email = models.EmailField(verbose_name="Adresse mail du client")
 
@@ -51,4 +55,47 @@ class Contact(models.Model):
 	class Meta:
 		verbose_name = "Contact"
 		verbose_name_plural = "Les Contacts"
+
+
+class CommanderService(models.Model):
+
+	# Informations clients
+
+	nom_entreprise = models.CharField(max_length=200)
+	raison_social = models.CharField(max_length=300)
+	domaine_dactivite = models.CharField(max_length=200)
+	adresse = CountryField()
+	ville = models.CharField(max_length=200)
+
+	# Personne à conatacter en charge du projet
+
+	nom_personne = models.CharField(max_length=200)
+	prenom_personne = models.CharField(max_length=200)
+
+	regexTel = r'^(+){1}\d{2,4}\s?\d{4,10}$'
+	tel = models.CharField(
+		max_length=100, validators=[RegexValidator(
+			regex=regexTel,
+			message="Ce n'est pas un serieux numéro de télephone !"
+			)]
+		)
+	email = models.EmailField()
+
+	# Informations du projet
+	options_forme_projet = (
+		("creation_de_site", "Création de site"),
+		("refonte_du_site", "Refonte de site"),
+		("amelioration_du_site", "Amélioration du site"),
+	)
+	forme_du_projet = models.CharField(max_length=100, choices=options_forme_projet)
+	refonte_true = models.URLField(blank=True)
+
+	# objectifs du site
+	options_nature_projet = (
+		("site_vitrine", "Site vitrine"),
+		("site_ecommerce", "Refonte de site"),
+		("portail_info", "Amélioration du site"),
+	)
+	nature_du_projet = models.CharField(max_length=100, choices=options_nature_projet)
+
 

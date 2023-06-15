@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import Projects, Clients, Contact
-from .forms import ContactForm
+from .forms import ContactForm, CommanderServiceForm
 from django.core.mail import send_mail
 from blog.models import Articles
+from django.core.paginator import Paginator
 
 import os
 
@@ -140,3 +141,12 @@ def contact(request):
 
 def page_not_found_view(request, exception):
 	return render(request, "common/404.html")
+
+
+def commander_service(request):
+	context = {}
+	form = CommanderServiceForm()
+	print()
+	paginator = Paginator(form, 2)
+	context['form'] = paginator.get_page(1)
+	return render(request, "mysite/commander_service.html", context)
