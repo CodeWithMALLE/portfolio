@@ -17,11 +17,19 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.shortcuts import render
 from django.urls import path, include
 
 app_name = "portfolio"
 handler404 = "mysite.views.page_not_found_view"
+
+
 # handler404 = 'myapp.views.page_not_found_view'
+
+
+def seo(request):
+    return render(request, "seo/google779eb3315ac6f149.html")
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,5 +39,4 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
+	urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
